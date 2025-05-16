@@ -1,0 +1,224 @@
+.header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 30;
+  background: rgba(11, 8, 12, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.header ul {
+  flex: 1;
+  font-size: 14px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header ul li {
+  margin-left: 0px;
+  letter-spacing: 1px;
+  color: #eae5ec;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.header ul li:hover {
+  color: var(--tertiary);
+}
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+.navbar-connect-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.navbar-connect {
+  position: relative;
+  display: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #eae5ec;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.navbar-title {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  color: #eae5ec;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 43px;
+  line-height: 43px;
+}
+.avatar-container {
+  width: 43px;
+  height: 43px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+.avatar-container:hover {
+  transform: scale(1.1);
+}
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.header > div > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 50;
+}
+.modal-container {
+  background: rgba(43, 43, 66, 0.82);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: 90vw;
+  height: 90vw;
+  max-width: 740px;
+  max-height: 740px;
+  position: relative;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.modal-close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+  border: none;
+  transition: transform 0.2s ease;
+  z-index: 51;
+  }
+.modal-close:hover {
+  transform: scale(1.1);
+}
+@media only screen and (min-width: 768px) {
+  .header ul {
+    display: flex;
+  }
+  .modal-container {
+    width: 500px;
+    height: 500px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header ul {
+    display: none;
+  }
+  .modal-container {
+    width: 90vw;
+    height: 90vw;
+    padding: 1rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .navbar-connect {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .header {
+    padding: 20px 0;
+  }
+  .navbar-title span {
+    display: inline;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 35px 0px;
+  }
+  .header ul {
+    gap: 5rem;
+    font-size: 16px;
+  }
+  .navbar-connect {
+    font-size: 16px;
+  }
+  .navbar-title {
+    font-size: 18px;
+  }
+}
+/* Modal Styles */
+.modal {
+  animation: modalFadeIn 0.3s ease-out;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Left section styles */
+.left-section > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

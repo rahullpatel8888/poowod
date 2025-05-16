@@ -1,0 +1,246 @@
+.career-section {
+  min-height: 100vh;
+  padding: 100px 20px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--backgroundColor);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+  margin-bottom: 300px;
+}
+
+.career-section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.career-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.career-title {
+  color: #7f40ff;
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 80px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.section-visible .career-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.career-content {
+  position: relative;
+  padding-left: 20px;
+}
+
+.career-timeline {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    #aa42ff 20%,
+    var(--accentColor) 50%,
+    transparent 95%
+  );
+  max-height: 0%;
+  transition: max-height 0.6s ease-out;
+  will-change: max-height;
+  z-index: 2;
+}
+
+.career-dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #aa42ff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 2px #d29bff, 0px 0px 15px 8px #d097ff,
+    0px 0px 110px 20px #f2c0ff;
+  animation: timeline 0.8s linear infinite forwards;
+  z-index: 2;
+}
+
+.career-items {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.career-item {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: calc(var(--item-index, 0) * 0.2s);
+  will-change: opacity, transform;
+  margin: 10px 0;
+}
+
+.career-item.item-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.career-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.03)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.career-item::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.career-item-content {
+  position: relative;
+  z-index: 1;
+}
+
+.career-item h3 {
+  color: #d5d6e0;
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.career-item h4 {
+  color: #5a5a7a;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 32px 0;
+}
+
+.career-item ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.career-item li {
+  color: #d5d6e0;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: normal;
+  margin: 0;
+  padding-left: 8px;
+}
+
+@keyframes timeline {
+  10%, 20%, 50%, 70%, 90% {
+    box-shadow: 0px 0px 5px 2px #d29bff;
+  }
+  10%, 30%, 0%, 100%, 64%, 80% {
+    box-shadow: 0px 0px 5px 2px #d29bff, 0px 0px 15px 5px #d097ff,
+      0px 0px 110px 20px #f2c0ff;
+  }
+}
+
+@media (max-width: 1024px) {
+  .career-title {
+    font-size: 48px;
+    margin-bottom: 60px;
+  }
+
+  .career-item {
+    padding: 32px;
+  }
+
+  .career-item h3 {
+    font-size: 32px;
+  }
+
+  .career-item h4 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .career-item li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-section {
+    padding: 60px 20px;
+  }
+
+  .career-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .career-item {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .career-item::before,
+  .career-item::after {
+    border-radius: 16px;
+  }
+
+  .career-item h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .career-item h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .career-item li {
+    font-size: 15px;
+  }
+}
